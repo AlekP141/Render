@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_142629) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_29_143902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "artworks", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.integer "price"
+    t.text "address"
+    t.text "description"
+    t.float "average_rating"
+    t.integer "height"
+    t.integer "width"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_artworks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
@@ -24,4 +37,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_142629) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "artworks", "users"
 end
