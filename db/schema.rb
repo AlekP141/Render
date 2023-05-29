@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_29_145138) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_29_152255) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +24,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_145138) do
     t.integer "width"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["user_id"], name: "index_artworks_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "artwork_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_bookings_on_artwork_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -49,6 +61,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_145138) do
   end
 
   add_foreign_key "artworks", "users"
+  add_foreign_key "bookings", "artworks"
+  add_foreign_key "bookings", "users"
   add_foreign_key "reviews", "artworks"
   add_foreign_key "reviews", "users"
 end
