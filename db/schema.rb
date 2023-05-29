@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_29_161311) do
     t.integer "width"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
