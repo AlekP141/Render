@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
-  get 'bookings/new'
-  get 'bookings/create'
-  get 'bookings/confirm'
-  get 'reviews/new'
-  get 'reviews/create'
-  get 'reviews/destroy'
+  devise_for :users
   get 'artworks/index'
   get 'artworks/show'
   get 'artworks/new'
