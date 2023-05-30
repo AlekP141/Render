@@ -1,0 +1,20 @@
+    <div class="row mt-4 d-flex justify-content-between">
+      <% @artworks.each do |artwork| %>
+      <div class="col-4 p-2">
+        <div class="card m-2 shadow-sm">
+        <img class="card-img-top rounded" src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1766&q=80" alt="Card image cap">
+          <div class="card-title">
+            <div class="d-flex justify-content-between  mt-2 px-3">
+              <div>
+                <h5><strong><%= artwork.name %></strong></h5>
+              </div>
+              <div>
+                <i class="fa-solid fa-star fa-sm" style="color:#ffc300"> <span class="icon-text"><%= artwork.average_rating %></span></i>
+              </div>
+            </div>
+            <p class="card-text mx-3">£<%= artwork.price %>/night</p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>

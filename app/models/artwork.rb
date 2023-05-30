@@ -3,7 +3,6 @@ class Artwork < ApplicationRecord
 
   # validates :user, presence: true
   #  artwork belongs to a user validating the precence of the user_id attr
-
   validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
   #  artwork price is not a negative number but also gives a nil price to artworks should it be free?
   validates :address, presence: true, length: { maximum: 300 }
@@ -15,4 +14,5 @@ class Artwork < ApplicationRecord
   validates :height, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_nil: true
   validates :width, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_nil: true
   # that the height and width measurements are a positive number and no artwork without it cant be validated
+
 end
