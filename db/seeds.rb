@@ -26,7 +26,7 @@ User.destroy_all
       price: rand(10..40),
       width: rand(50..150),
       height: rand(50..150),
-      average_rating: rand(0.0..10.0).round(2),
+      average_rating: rand(0.0..5.0).round(2),
       address: Faker::Address.street_address,
       description: Faker::Quote.matz,
       user: user

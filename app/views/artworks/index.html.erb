@@ -1,25 +1,6 @@
 <%= render "shared/header" %>
-<div class="container">
-  <div class="d-flex aligns-items-center justify-content-center">
-    <div class="row mt-4">
-      <% @artworks.each do |artwork| %>
-      <div class="col-4">
-        <div class="card m-2" style="width: 20rem;">
-        <img class="card-img-top" src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1766&q=80" alt="Card image cap">
-          <div class="card-title">
-            <div class="d-flex justify-content-between p-2">
-              <div>
-                <h5><%= artwork.name %></h5>
-              </div>
-              <div>
-                <i class="fa-solid fa-star fa-sm" style="color:#ffc300"> <%= artwork.average_rating %></i>
-              </div>
-            </div>
-            <p class="card-text mx-2">£<%= artwork.price %> p/night</p>
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
+<div class="container bg-light">
+  <div class="bg-light mt-4">
+    <%= render "shared/card" %>
   </div>
 </div>
