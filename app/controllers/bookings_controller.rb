@@ -7,4 +7,7 @@ class BookingsController < ApplicationController
 
   def confirm
   end
+
+  def destroy
+  end
 end
