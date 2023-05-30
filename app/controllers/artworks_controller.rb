@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
   def home
-
+    @artworks = Artwork.all.sample(3)
   end
 
   def index
@@ -8,6 +8,7 @@ class ArtworksController < ApplicationController
   end
 
   def show
+    @artwork = Artwork.find(params[:id])
   end
 
   def new

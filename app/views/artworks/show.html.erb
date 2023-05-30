@@ -1,2 +1,33 @@
-<h1>Artworks#show</h1>
-<p>Find me in app/views/artworks/show.html.erb</p>
+<%= render "shared/header" %>
+
+<div class="container">
+  <div class="card mt-4 shadow-sm">
+    <div class="row d-flex justify-content-between">
+     <div class="col-5">
+      <div class="card-title">
+        <div class="d-flex justify-content-between  mt-2 px-3">
+          <div class="mt-2">
+            <h3><strong><%= @artwork.name %></strong></h3>
+          </div>
+          <div class="mt-2">
+            <i class="fa-solid fa-star fa-lg" style="color:#ffc300"> <span class="icon-text"><%= @artwork.average_rating %></span></i>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between mt-2 px-3">
+          <div>
+            <p class="card-text"><%=@artwork.description%></p>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center mt-2 px-3">
+          <div class="m-2">
+            <p class="card-text"><strong><%=@artwork.address%></strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-7">
+    <img class="card-img-top rounded" id="card" src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1766&q=80" alt="Card image cap">
+    </div>
+  </div>
+  </div>
+</div>
