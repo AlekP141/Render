@@ -12,7 +12,14 @@
                 <i class="fa-solid fa-star fa-sm" style="color:#ffc300"> <span class="icon-text"><%= artwork.average_rating %></span></i>
               </div>
             </div>
-            <p class="card-text mx-3">£<%= artwork.price %>/night</p>
+            <div class="d-flex justify-content-between mt-2 px-3">
+              <div>
+                <p class="card-text">£<%=artwork.price%>/night</p>
+              </div>
+              <div class="">
+                <%= link_to "More +", artwork_path(artwork), class: "text-decoration-none mr-2" %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
