@@ -1,0 +1,100 @@
+<h2>Sign up</h2>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "email" }%>
+    <%= f.input :password,
+                required: true,
+                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+<!--
+
+<div class="container">
+  <div class="card-body mt-5">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <p class="text-center h1">Sign Up</p>
+        <form class="mx-1 my-3" id="new_user" novalidate="novalidate" action="/users/sign_in" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="rdl_G0wXWMH_vHPb3hv_XyeHAxfOMi-OsjXv2nrvprK7vkQ0TU6qPAxOEOczM5ol-myd2zEN4OiJVgIqKI_ihQ" autocomplete="off">
+
+          <%# NAME FIELDS %>
+
+          <div class="row align-items-center mb-2">
+            <div class=" col-6 form-outline mb-0">
+              <input type="text" class="form-control"  type="name" value="" name="user[first_name]" id="first_name" autofocus="autofocus"/>
+              <label class="form-label" for="first_name">First Name</label>
+            </div>
+            <div class=" col-6 form-outline mb-0">
+              <input type="text" class="form-control" type="name" value="" name="user[last_name]" id="last_name"/>
+              <label class="form-label" for="last_name">Last Name</label>
+            </div>
+          </div>
+
+          <%# USERNAME FIELD %>
+
+          <div class="d-flex flex-row align-items-center mb-2">
+            <div class="form-outline flex-fill mb-0">
+              <input autocomplete="username" type="username" value="" name="user[username]" id="username" class="form-control"/>
+              <label class="form-label" for="username">Username</label>
+            </div>
+          </div>
+
+          <%# EMAIL FIELD %>
+
+          <div class="d-flex flex-row align-items-center mb-2">
+            <div class="form-outline flex-fill mb-0">
+              <input autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control"/>
+              <label class="form-label" for="user_email">Your Email</label>
+            </div>
+          </div>
+
+          <%# PHONE NUMBER FIELD %>
+
+          <div class="d-flex flex-row align-items-center mb-2">
+            <div class="form-outline flex-fill mb-0">
+              <input autocomplete="tel" type="tel" value="" name="user[phone_number]" id="user_phone_number" class="form-control"/>
+              <label class="form-label" for="user_phone_number">Phone Number</label>
+            </div>
+          </div>
+
+          <%# PASSWORD FIELD %>
+
+          <div class="d-flex flex-row align-items-center mb-2">
+            <div class="form-outline flex-fill mb-0">
+              <input type="password" class="form-control" autocomplete="current-password" type="password" name="user[password]" id="user_password"/>
+              <label class="form-label" for="user_password">Password</label>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center mx-4 mb-2">
+            <button type="button" class="btn btn-primary btn-lg">Sign Up</button>
+          </div>
+
+        </form>
+
+      </div>
+      <div class="col-6 d-flex align-items-center justify-content-center">
+      <%= link_to root_path do %>
+        <%= image_tag "logo_with_text.png", alt:"Render Logo", width:"80%", class:"d-inline-block align-text-top" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+-->
