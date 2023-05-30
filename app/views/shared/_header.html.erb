@@ -1,9 +1,23 @@
 <nav class="navbar bg-body-tertiary px-4 border-bottom">
   <div class="container-fluid ">
     <a class="navbar-brand" href="#">
-      <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-      Bootstrap
+      <%= image_tag "logo.png", alt:"Logo", width:"50", height:"50", class:"d-inline-block align-text-top" %>
     </a>
-    <button class="btn btn-outline-primary" type="submit">List your artwork!</button>
+    <div class="">
+      <button class="btn btn-outline-primary m-3" type="submit">List your artwork!</button>
+      <%= image_tag "default_avatar", alt:"User Photo", class:"avatar d-inline-block align-self-center" %>
+      <%# Changes if a login button is showed or the user avatar %>
+ <!--     <% if current_user %>
+
+        <% if current_user.photo.attached? %>
+          <%= image_tag current_user.photo.key, alt:"User Photo", width: "30", height: "30", class:"avatar d-inline-block align-self-center" %>
+        <% else %> -->
+    <!--    <% end %>
+
+      <% else %>
+        <button class="btn btn-outline-info m-3" type="submit">Login</button>
+      <% end %>
+-->
+    </div>
   </div>
 </nav>
