@@ -1,8 +1,8 @@
 <nav class="navbar bg-body-tertiary px-4 border-bottom">
   <div class="container-fluid ">
-    <a class="navbar-brand" href="#">
+    <%= link_to artworks_path do %>
       <%= image_tag "logo.png", alt:"Logo", width:"50", height:"50", class:"d-inline-block align-text-top" %>
-    </a>
+    <% end %>
     <div class="">
       <button class="btn btn-outline-primary m-3" type="submit">List your artwork!</button>
       <%# Changes if a login button is showed or the user avatar %>
