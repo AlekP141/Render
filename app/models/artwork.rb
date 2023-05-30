@@ -1,6 +1,8 @@
 class Artwork < ApplicationRecord
   belongs_to :user
 
+  has_one_attached :photo
+
   # validates :user, presence: true
   #  artwork belongs to a user validating the precence of the user_id attr
   validates :price, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
