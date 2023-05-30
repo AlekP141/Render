@@ -11,6 +11,7 @@ class ArtworksController < ApplicationController
   end
 
   def new
+    @artworks = Artwork.new
   end
 
   def create
