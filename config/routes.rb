@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :confirm]
     resources :reviews, only: [:new, :create]
   end
-  recources :reviews, only: [:destroy]
-  recources :bookings, only: [:destroy]
+  resources :reviews, only: [:destroy]
+  resources :bookings, only: [:destroy]
 end
