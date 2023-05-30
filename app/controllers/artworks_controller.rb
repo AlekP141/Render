@@ -2,9 +2,9 @@ class ArtworksController < ApplicationController
   def home
 
   end
-  
+
   def index
-    
+    @artworks = Artwork.all
   end
 
   def show
