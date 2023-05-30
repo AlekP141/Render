@@ -1,11 +1,11 @@
 <%= render "shared/header" %>
 
-
+<!--
 <div class="container">
 <h1>  Add your new artwork today! </h1>
 
     <div class="mt-3">
-    <%= simple_form_for(@artworks) do |f| %>
+    <%= simple_form_for(@artwork) do |f| %>
       <%= f.input :name %>
       <%= f.input :address %>
       <%= f.input :description %>
@@ -23,101 +23,69 @@
       <% end %>
     </div>
 </div>
+-->
 
-
-<%# <section class="h-100 h-custom gradient-custom-$blue">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+<div class="container mt-3 d-flex justify-content-center">
+    <div class="row d-flex justify-content-center align-items-center">
       <div class="col-12">
-        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-          <div class="card-body p-0">
-            <div class="row g-0">
-              <div class="col-lg-6">
-                <div class="p-5">
-                  <h3 class="fw-normal mb-5" style="color: #4835d4;">General Infomation</h3>
-
+        <div class="card" style="border-radius: 15px;">
+            <form class="simple_form new_artwork row p-2 m-0" id="new_artwork" novalidate="novalidate" enctype="multipart/form-data" action="/artworks" accept-charset="UTF-8" method="post">
+              <input type="hidden" name="authenticity_token" value="4gL9J_9CKJ59Dn-bY3zgp_Q6TdacrOd1ubQwcPCv6-tM6C8tcWlfcXRYCI4nRjdBeDD9ho8VJr4hGuB-Ww6_yg" autocomplete="off">
+              <div class="col-6 p-3">
+                  <h3 class="mb-5 text-purple">General Infomation</h3>
                   <div class="row">
-                    <div class="col-md-6 mb-4 pb-2">
-
+                    <div class="col-12 mb-4 pb-2">
                       <div class="form-outline">
-                        <input type="text" id="form3Examplev2" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplev2">Artist name</label>
+                        <input type="text" id="artwork_name" class="form-control" type="text" name="artwork[name]"/>
+                        <label class="form-label" for="artwork_name">Title of Artwork</label>
                       </div>
-
-                    </div>
-                    <div class="col-md-6 mb-4 pb-2">
-
-
-
                     </div>
                   </div>
-
                   <div class="mb-4 pb-2">
                     <div class="form-outline">
-                      <input type="text" id="form3Examplev4" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplev4">Art Description</label>
+                      <textarea class="form-control text required" name="artwork[description]" id="artwork_description"></textarea>
+                      <label class="form-label" for="artwork_description">Description</label>
                     </div>
                   </div>
-
                   <div class="mb-4 pb-2">
                     <div class="form-outline">
-                      <input type="text" id="form3Examplev4" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplev4">Artist Address</label>
+                      <textarea class="form-control text required" name="artwork[address]" id="artwork_address"></textarea>
+                      <label class="form-label" for="artwork_address">Address</label>
                     </div>
                   </div>
-
-
-
-                </div>
               </div>
-              <div class="col-lg-6 bg-indigo text-white">
-                <div class="p-5">
+              <div class="col-6 bg-light-purple text-white p-3" style="border-radius: 15px;">
                   <h3 class="fw-normal mb-5">Artwork Details</h3>
-
-
-
-
-
                   <div class="row">
                     <div class="col-md-6 mb-4 pb-2">
-
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea4" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea4">Artwork Width</label>
+                        <input class="form-control numeric integer required" type="number" step="1" name="artwork[width]" id="artwork_width">
+                        <label class="form-label" for="artwork_width">Artwork Width</label>
                       </div>
-
                     </div>
                     <div class="col-md-6 mb-4 pb-2">
-
                       <div class="form-outline form-white">
-                        <input type="text" id="form3Examplea5" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea5">Artwork Height</label>
+                        <input class="form-control numeric integer required" type="number" step="1" name="artwork[height]" id="artwork_height">
+                        <label class="form-label" for="artwork_height">Artwork Height</label>
                       </div>
-
                     </div>
                   </div>
-
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
-                      <input type="text" id="form3Examplea6" class="form-control form-control-lg" />
-                      <label class="form-label" for="form3Examplea6">Price of Listing</label>
+                      <input class="form-control numeric integer required" type="number" step="1" name="artwork[price]" id="artwork_price">
+                      <label class="form-label" for="artwork_price">Price per Night</label>
                     </div>
                   </div>
-
                   <div class="mb-4 pb-2">
                     <div class="form-outline form-white">
-                      <input type="file" class="form-control" id="customFile" />
-                      <label class="form-label" for="customFile">Default file input example</label>
+                      <input class="form-control file required" type="file" name="artwork[photo]" id="artwork_photo">
+                      <label class="form-label" for="artwork_photo">Upload Image</label>
                     </div>
                   </div>
-                   <button type="button" class="btn btn-light btn-lg"
-                    data-mdb-ripple-color="dark">Submit Art</button>
-                </div>
-              </div>
+                  <input type="submit" name="commit" value="Submit" class="btn btn-light mt-3" data-disable-with="Submit">
+                </form>
             </div>
-          </div>
         </div>
       </div>
     </div>
-  </div>
-</section> %>
+</div>

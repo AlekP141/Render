@@ -10,7 +10,10 @@
   background-image: url("../../images/logo_with_text.png");
   background-position: center;
   background-size: cover;
+}
 
+.homepage-featured {
+  color: $text-light-gray;
 }
 
 //SEARCH BAR
@@ -56,4 +59,16 @@
   cursor: pointer;
   z-index: 1;
 
+}
+
+// SEE ALL LINK
+
+.homepage-see-all {
+  text-decoration: none;
+  color: $text-light-gray;
+
+  &:hover {
+    color: $purple;
+    text-decoration: underline;
+  }
 }

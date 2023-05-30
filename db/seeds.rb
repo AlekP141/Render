@@ -29,26 +29,26 @@ end
 user1 = User.create(
   first_name: "User",
   last_name: "1",
-  email: "test1@test.com",
+  email: "user1@user.com",
   username: "user1",
-  password: "password"
+  password: "123456"
 )
 createArtworks(user1)
 
 user2 = User.create(
   first_name: "User",
   last_name: "2",
-  email: "test2@test.com",
+  email: "user2@user.com",
   username: "user2",
-  password: "password"
+  password: "123456"
 )
 createArtworks(user2)
 
 user3 = User.create(
   first_name: "User",
   last_name: "3",
-  email: "test3@test.com",
+  email: "user3@user.com",
   username: "user3",
-  password: "password"
+  password: "123456"
 )
 createArtworks(user3)

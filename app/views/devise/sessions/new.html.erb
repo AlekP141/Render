@@ -1,4 +1,4 @@
-<!-- <div class="container ">
+<div class="container ">
   <h2>Log in</h2>
 
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -19,7 +19,9 @@
   <% end %>
 
   <%= render "devise/shared/links" %>
-</div>  -->
+</div>
+
+<!--
 
 <div class="container">
   <div class="card-body mt-5">
@@ -29,7 +31,7 @@
         <form class="mx-1 my-3" id="new_user" novalidate="novalidate" action="/users/sign_in" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="rdl_G0wXWMH_vHPb3hv_XyeHAxfOMi-OsjXv2nrvprK7vkQ0TU6qPAxOEOczM5ol-myd2zEN4OiJVgIqKI_ihQ" autocomplete="off">
 
           <%# USERNAME FIELD %>
-
+          <!--
           <div class="d-flex flex-row align-items-center mb-2">
             <div class="form-outline flex-fill mb-0">
               <input autocomplete="username" type="username" value="" name="user[username]" id="username" class="form-control"/>
@@ -37,11 +39,15 @@
             </div>
           </div>
 
+          -->
+
+          <!--
+
           <%# EMAIL FIELD %>
 
           <div class="d-flex flex-row align-items-center mb-2">
             <div class="form-outline flex-fill mb-0">
-              <input autocomplete="email" type="email" value="" name="user[email]" id="user_email" class="form-control"/>
+              <input  type="email" value="" name="user[email]" id="user_email" class="form-control"/>
               <label class="form-label" for="user_email">Your Email</label>
             </div>
           </div>
