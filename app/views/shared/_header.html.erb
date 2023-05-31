@@ -5,12 +5,14 @@
     <% end %>
     <div>
       <%= link_to new_artwork_path do %>
-        <button class="btn btn-outline-primary m-3" type="submit">List your artwork!</button>
+        <button class="btn btn-outline-primary mx-1 my-3" type="submit">List my artwork!</button>
       <% end %>
       <%# Changes if a login button is showed or the user avatar %>
       <% if current_user %>
+          <%= link_to myartworks_path do %>
+            <button class="btn btn-outline-info mx-2 my-3" type="submit">My Artwork</button>
+          <% end %>
           <%= image_tag "default_avatar.png", alt:"User Photo", class:"avatar d-inline-block align-self-center" %>
-          <%= link_to "My artworks", myartworks_path %>
       <% else %>
         <%= link_to new_user_session_path do %>
           <button class="btn btn-outline-info m-3" type="submit">Login</button>
