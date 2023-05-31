@@ -15,6 +15,9 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :photo,
+                as: :file,
+                required: true %>
   </div>
 
   <div class="form-actions">
@@ -25,13 +28,12 @@
 <%= render "devise/shared/links" %>
 
 <!--
-
 <div class="container">
   <div class="card-body mt-5">
     <div class="row justify-content-center">
       <div class="col-6">
         <p class="text-center h1">Sign Up</p>
-        <form class="mx-1 my-3" id="new_user" novalidate="novalidate" action="/users/sign_in" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="rdl_G0wXWMH_vHPb3hv_XyeHAxfOMi-OsjXv2nrvprK7vkQ0TU6qPAxOEOczM5ol-myd2zEN4OiJVgIqKI_ihQ" autocomplete="off">
+        <form class="mx-1 my-3" id="new_user" novalidate="novalidate" action="/users" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="rdl_G0wXWMH_vHPb3hv_XyeHAxfOMi-OsjXv2nrvprK7vkQ0TU6qPAxOEOczM5ol-myd2zEN4OiJVgIqKI_ihQ" autocomplete="off">
 
           <%# NAME FIELDS %>
 
@@ -82,8 +84,17 @@
             </div>
           </div>
 
+          <%# PHOTO UPLOAD %>
+
+          <div class="mb-4 pb-2">
+            <div class="form-outline form-white">
+              <input class="form-control file required" type="file" name="user[photo]" id="user_photo">
+              <label class="form-label" for="user_photo">Upload Avatar</label>
+            </div>
+          </div>
+
           <div class="d-flex justify-content-center mx-4 mb-2">
-            <button type="button" class="btn btn-primary btn-lg">Sign Up</button>
+            <button type="submit" class="btn btn-primary btn-lg">Sign Up</button>
           </div>
 
         </form>
