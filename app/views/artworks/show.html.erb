@@ -83,23 +83,23 @@
           </div>
 
         </div>
-        <div class="col-7 d-flex justify-content-between align-items-end border-start border-primary">
-        <div>
-          <p>Number of nights: <span data-booking-form-target="numberOfNights"></span></p>
-          <p>Service Charge: £<span data-booking-form-target="serviceCharge"></span></p>
+        <div class="col-7 row justify-content-between align-items-end border-start border-primary">
+          <div>
+            <p class="col-12">Number of nights: <span data-booking-form-target="numberOfNights"></span></p>
+            <p class="col-12">Service Charge: £<span data-booking-form-target="serviceCharge"></span></p>
+            <br>
+          </div>
+          <p class="mx-3 mb-0 col-12 text-end px-3">Total Price: £<span data-booking-form-target="totalPrice"></span></p>
           <br>
-        </div>
-          <p class="mx-3 mb-0">Total Price: £<span data-booking-form-target="totalPrice"></span></p>
-          <br>
-        <form action="/artworks/<%=@artwork.id%>/bookings" method="POST">
-          <input type="hidden" name="authenticity_token" value="4gL9J_9CKJ59Dn-bY3zgp_Q6TdacrOd1ubQwcPCv6-tM6C8tcWlfcXRYCI4nRjdBeDD9ho8VJr4hGuB-Ww6_yg" autocomplete="off">
-          <label for="start_date" class="d-none form-label date required">Start Date</label>
-          <input data-booking-form-target="startDate" type="date" id="start_date" name="start_date" class="d-none form-select mx-1 date required">
-          <label for="end_date" class="d-none form-label date required">End Date</label>
-          <input data-booking-form-target="endDate" type="date" id="end_date" name="end_date" class="d-none form-select mx-1 date required">
-          <input type="text" id="artwork" name="artwork_id" value="<%= @artwork.id %>" class="d-none">
-          <button type="submit" class="btn btn-primary">Confirm Booking</button>
-        </form>
+          <div class="col-12 text-end px-3">
+            <%= simple_form_for [@artwork, @booking] do |f| %>
+              <div class="d-none">
+              <%= f.input :start_date, as: :date, html5: true %>
+              <%= f.input :end_date, as: :date, html5: true %>
+              </div>
+              <%= f.submit "Confirm", class: "btn btn-primary mt-3" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

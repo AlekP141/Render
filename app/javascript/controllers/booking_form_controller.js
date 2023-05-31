@@ -40,9 +40,12 @@ export default class extends Controller {
     this.serviceChargeTarget.innerText = serviceCharge
     this.totalPriceTarget.innerText = totalPrice + serviceCharge
 
-    this.startDateTarget.value = start_date
-    this.endDateTarget.value = end_date
-    console.log(this.startDateTarget.value)
-    console.log(this.endDateTarget.value)
+    document.querySelector("#booking_start_date").value = start_date
+    document.querySelector("#booking_end_date").value = end_date
+    
+    // this.startDateTarget.value = start_date
+    // this.endDateTarget.value = end_date
+    // console.log(this.startDateTarget.value)
+    // console.log(this.endDateTarget.value)
   }
 }
