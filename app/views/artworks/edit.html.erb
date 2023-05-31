@@ -1,2 +1,68 @@
-<h1>Artworks#edit</h1>
-<p>Find me in app/views/artworks/edit.html.erb</p>
+<%= render "shared/header" %>
+<div class="text-center-align">
+  <h1>Edit your listing here:</h1>
+</div>
+<div class="container mt-3 d-flex justify-content-center">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-12">
+        <div class="card" style="border-radius: 15px;">
+            <form class="simple_form new_artwork row p-2 m-0" id="edit_artwork" novalidate="novalidate" enctype="multipart/form-data" action="/artworks/<%= @artwork.id %>" accept-charset="UTF-8" method="patch">
+              <input type="hidden" name="authenticity_token" value="4gL9J_9CKJ59Dn-bY3zgp_Q6TdacrOd1ubQwcPCv6-tM6C8tcWlfcXRYCI4nRjdBeDD9ho8VJr4hGuB-Ww6_yg">
+              <div class="col-6 p-3">
+                  <h3 class="mb-5 text-purple">General Infomation</h3>
+                  <div class="row">
+                    <div class="col-12 mb-4 pb-2">
+                      <div class="form-outline">
+                        <input type="text" id="artwork_name" class="form-control" type="text" name="artwork[name]" value="<%= @artwork.name %>"/>
+                        <label class="form-label" for="artwork_name">Title of Artwork</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline">
+                      <textarea class="form-control text required" name="artwork[description]" id="artwork_description"><%= @artwork.description %></textarea>
+                      <label class="form-label" for="artwork_description">Description</label>
+                    </div>
+                  </div>
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline">
+                      <textarea class="form-control text required" name="artwork[address]" id="artwork_address"><%= @artwork.address %></textarea>
+                      <label class="form-label" for="artwork_address">Address</label>
+                    </div>
+                  </div>
+              </div>
+              <div class="col-6 bg-light-purple text-white p-3" style="border-radius: 15px;">
+                  <h3 class="fw-normal mb-5">Artwork Details</h3>
+                  <div class="row">
+                    <div class="col-md-6 mb-4 pb-2">
+                      <div class="form-outline form-white">
+                        <input class="form-control numeric integer required" type="number" step="1" name="artwork[width]" value="<%= @artwork.width %>" id="artwork_width">
+                        <label class="form-label" for="artwork_width">Artwork Width</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-4 pb-2">
+                      <div class="form-outline form-white">
+                        <input class="form-control numeric integer required" type="number" step="1" name="artwork[height]" value="<%= @artwork.height %>" id="artwork_height">
+                        <label class="form-label" for="artwork_height">Artwork Height</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                      <input class="form-control numeric integer required" type="number" step="1" name="artwork[price]" value="<%= @artwork.price %>" id="artwork_price">
+                      <label class="form-label" for="artwork_price">Price per month</label>
+                    </div>
+                  </div>
+                  <div class="mb-4 pb-2">
+                    <div class="form-outline form-white">
+                      <input class="form-control file required" type="file" name="artwork[photo]" id="artwork_photo">
+                      <label class="form-label" for="artwork_photo">Upload Image</label>
+                    </div>
+                  </div>
+                  <input type="submit" name="commit" value="Submit" class="btn btn-light mt-3" data-disable-with="Submit">
+                </form>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

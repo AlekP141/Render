@@ -27,12 +27,19 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
+    @artwork = Artwork.find(params[:id])
+    @artwork.destroy
+    redirect_to myartworks_path, status: :see_other
   end
 
   def edit
+    @artwork = Artwork.find(params[:id])
   end
 
   def update
+    @artwork = Artwork.find(params[:id])
+    @artwork.update(artwork_params)
+    redirect_to myartworks_path(@artwork)
   end
 
   private

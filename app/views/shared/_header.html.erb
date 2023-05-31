@@ -10,6 +10,7 @@
       <%# Changes if a login button is showed or the user avatar %>
       <% if current_user %>
           <%= image_tag "default_avatar", alt:"User Photo", class:"avatar d-inline-block align-self-center" %>
+          <%= link_to "My artworks", myartworks_path %>
       <% else %>
         <%= link_to new_user_session_path do %>
           <button class="btn btn-outline-info m-3" type="submit">Login</button>
