@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [:destroy]
   resources :bookings, only: [:destroy]
+
+  get "myartworks", to: "pages#myartworks"
 end

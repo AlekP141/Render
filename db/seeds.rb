@@ -29,8 +29,8 @@ end
 user1 = User.create(
   first_name: "User",
   last_name: "1",
-  email: "user1@user.com",
-  username: "user1",
+  email: "dylon@user.com",
+  username: "Dylon",
   password: "123456"
 )
 createArtworks(user1)
@@ -38,8 +38,8 @@ createArtworks(user1)
 user2 = User.create(
   first_name: "User",
   last_name: "2",
-  email: "user2@user.com",
-  username: "user2",
+  email: "alek@user.com",
+  username: "Alek",
   password: "123456"
 )
 createArtworks(user2)
@@ -47,8 +47,8 @@ createArtworks(user2)
 user3 = User.create(
   first_name: "User",
   last_name: "3",
-  email: "user3@user.com",
-  username: "user3",
+  email: "lorenzo@user.com",
+  username: "Lorenzo",
   password: "123456"
 )
 createArtworks(user3)
