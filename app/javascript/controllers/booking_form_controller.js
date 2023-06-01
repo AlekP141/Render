@@ -10,7 +10,7 @@ export default class extends Controller {
   }
 
   show_booking_form() {
-    this.bookingFormDivTarget.classList.toggle("d-none");
+    this.bookingFormDivTarget.classList.remove("d-none");
   }
 
   submit(e) {
@@ -37,12 +37,12 @@ export default class extends Controller {
     console.log(this.pricePerNightTarget)
     const totalPrice = diffDays * parseInt(this.pricePerNightTarget.innerText, 10)
     const serviceCharge = totalPrice * 0.10
-    this.serviceChargeTarget.innerText = serviceCharge
+    this.serviceChargeTarget.innerText = Math.round(serviceCharge)
     this.totalPriceTarget.innerText = totalPrice + serviceCharge
 
     document.querySelector("#booking_start_date").value = start_date
     document.querySelector("#booking_end_date").value = end_date
-    
+
     // this.startDateTarget.value = start_date
     // this.endDateTarget.value = end_date
     // console.log(this.startDateTarget.value)

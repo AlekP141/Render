@@ -1,0 +1,11 @@
+.show-btn-delete {
+  opacity: 50%;
+    &:hover {
+      background-color: $light-purple;
+      border-color: $light-purple;
+    }
+}
+
+.card-divider {
+  border-bottom: #6E45DF80
+}
