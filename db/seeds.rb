@@ -55,13 +55,13 @@ def createArtworks(user)
     "18 Victoria Embankment Westminster London EC4Y 0DH"
   ]
 
-  10.times do
+  4.times do
     artwork = Artwork.new(
       name: Faker::GreekPhilosophers.name,
       price: rand(10..40),
       width: rand(50..150),
       height: rand(50..150),
-      average_rating: rand(0.0..5.0).round(2),
+      average_rating: rand(3.0..5.0).round(2),
       address: address.sample,
       description: Faker::Quote.matz,
       user: user
@@ -74,8 +74,8 @@ def createArtworks(user)
 end
 
 user1 = User.create(
-  first_name: "User",
-  last_name: "1",
+  first_name: "Dylon",
+  last_name: "Barhop",
   email: "dylon@user.com",
   username: "Dylon",
   password: "123456"
@@ -84,8 +84,8 @@ puts "User #{user1.id} created"
 createArtworks(user1)
 
 user2 = User.create(
-  first_name: "User",
-  last_name: "2",
+  first_name: "Alek",
+  last_name: "Barhop",
   email: "alek@user.com",
   username: "Alek",
   password: "123456"
@@ -94,8 +94,8 @@ puts "User #{user2.id} created"
 createArtworks(user2)
 
 user3 = User.create(
-  first_name: "User",
-  last_name: "3",
+  first_name: "Lorenzo",
+  last_name: "Barhop",
   email: "lorenzo@user.com",
   username: "Lorenzo",
   password: "123456"

@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   root to: "artworks#home"
   resources :artworks do
     resources :bookings, only: [:new, :create, :confirm]
-    resources :reviews, only: [:new, :create]
   end
   resources :reviews, only: [:destroy]
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy] do
+    resources :reviews, only: [:new, :create]
+  end
 
   get "myartworks", to: "pages#myartworks"
   get "mybookings", to: "pages#mybookings"

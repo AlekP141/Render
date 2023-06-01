@@ -5,6 +5,8 @@ class PagesController < ApplicationController
   def mybookings
     # @artworks = Artwork.all.select { |artwork| artwork.user_id == current_user.id }
     @bookings = current_user.bookings
+    @booking = Booking.new
+    @review = Review.new
   end
 
   def myartworks

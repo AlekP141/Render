@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :artwork
+  has_one :review
 
   validates :user_id, presence: true
   validates :artwork_id, presence: true

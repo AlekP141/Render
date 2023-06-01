@@ -1,0 +1,19 @@
+<h3 class="text-purple">Make a new booking</h3>
+<div class="mt-3">
+  <form action="">
+    <label for="start_date" class="form-label date required">Start Date</label>
+    <input type="date" id="start_date" name="start_date" class="form-select mx-1 date required">
+    <label for="end_date" class="form-label date required">End Date</label>
+    <input type="date" id="end_date" name="end_date" class="form-select mx-1 date required">
+    <button class="btn btn-primary" data-action="click->booking-form#submit">Submit Dates</button>
+  </form>
+</div>
+
+<h3 class="text-purple">Make a new booking</h3>
+  <div class="mt-3">
+    <%= simple_form_for [booking, @review] do |f| %>
+      <%= f.input :comment, placeholder: "Add your review here..." %>
+      <%= f.input :rating, as: :select, collection: (1..5), required: true, label: false, input_html: { data: { controller: "star-rating" } } %>
+      <%= f.submit class: "btn btn-flat mt-2" %>
+    <% end %>
+  </div>
