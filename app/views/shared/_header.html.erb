@@ -9,6 +9,11 @@
       <% end %>
       <%# Changes if a login button is showed or the user avatar %>
       <% if current_user %>
+          <% if current_user.bookings %>
+            <%= link_to mybookings_path do %>
+              <button class="btn btn-outline-info m-3" type="submit">My bookings</button>
+            <% end %>
+          <% end %>
           <%= link_to myartworks_path do %>
             <button class="btn btn-outline-info mx-2 my-3" type="submit">My Artwork</button>
           <% end %>

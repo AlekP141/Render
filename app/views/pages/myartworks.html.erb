@@ -3,11 +3,11 @@
 <div class="container">
 
 
-  <h2 class="mt-4">Welcome <%= current_user.first_name%>! Here are your listings:</h2>
+  <h2 class="mt-4">Welcome <%= current_user.username%>! Here are your listings:</h2>
 
   <% @artworks.each do |artwork| %>
     <div class="container">
-    <div class="card mt-4 shadow-sm">
+    <div class="card mt-4 shadow-sm" id="myartworks-card">
       <div class="row d-flex justify-content-between">
       <div class="col-7 d-flex flex-column justify-content-between">
         <div class="card-title m-0 p-0">
@@ -23,7 +23,7 @@
         <div class="card-body py-0 px-0 mx-2 border-bottom card-divider">
           <div class="d-flex justify-content-between">
             <div class="m-2">
-              <p class="card-text">Address: <strong><%=artwork.address%></strong></p>
+              <h5 class="card-text">Address: <strong><%=artwork.address%></strong></h5>
             </div>
             <div class="mx-2 mt-2">
               <i class="fa-solid fa-arrows-up-down fa-lg"> <span class="icon-text"><%= artwork.height %>cm</span></i>
@@ -39,14 +39,12 @@
           </div>
         </div>
         <div class="card-body py-0 px-2 d-flex justify-content-start align-items-center">
-
             <div class="m-2">
               <%= link_to "Edit", edit_artwork_path(artwork), class: "btn btn-primary btn-sm" %>
             </div>
             <div class="m-2">
               <%= link_to "Delete",artwork_path(artwork), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary show-btn-delete btn-sm" %>
             </div>
-
         </div>
       </div>
       <div class="col-5">
