@@ -26,8 +26,6 @@ def createArtworks(user, counter)
     "https://images.unsplash.com/photo-1579783928621-7a13d66a62d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y2xhc3NpYyUyMGFydHxlbnwwfHwwfHx8Mg%3D%3D&auto=format&fit=crop&w=900&q=60",
     "https://images.unsplash.com/photo-1576773689115-5cd2b0223523?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGNsYXNzaWMlMjBhcnR8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=900&q=60",
     "https://images.unsplash.com/photo-1577720643272-265f09367456?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1578925773717-a41e4a7fa4b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=680&q=80",
-    "https://images.unsplash.com/photo-1598565061944-fdd9f2775f98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80",
     "https://images.unsplash.com/photo-1549289524-06cf8837ace5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fGNsYXNzaWMlMjBhcnR8ZW58MHx8MHx8fDI%3D&auto=format&fit=crop&w=900&q=60",
     "https://images.unsplash.com/photo-1578926314433-e2789279f4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1010&q=80",
     "https://images.unsplash.com/photo-1584446922442-7ac6b8c118f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1056&q=80",
@@ -35,16 +33,18 @@ def createArtworks(user, counter)
   ]
 
   painting_names = [
+    "Heaven's Gate",
     "Still Life in Red",
     "Ascendance to the Heavens",
     "Forgotten Amulet",
     "Prayers of Healing",
     "Mary in the Field",
-    "Heaven's Gate",
     "Robes of Riches",
     "The Water Bearer",
-    "The Maternal Bond",
-    "Eleni"
+    "The Outpost",
+    "Down by the River",
+    "A Gathering of Gentlemen",
+    "Sunset 006"
   ]
 
   address = [
@@ -58,11 +58,13 @@ def createArtworks(user, counter)
     "42 Harrow View Road Ealing London W5 1LZ",
     "22 Hampstead High Street Hampstead London NW3 1QD",
     "98 Tottenham Lane Hornsey London N8 7EE",
+    "23 Kensington High Street Kensington London W8 5NP",
+    "72 Fleet Street City of London London EC4Y 1HY"
   ]
 
   4.times do
     artwork = Artwork.new(
-      name: Faker::GreekPhilosophers.name,
+      name: painting_names[counter],
       price: rand(10..40),
       width: rand(50..150),
       height: rand(50..150),
@@ -73,8 +75,11 @@ def createArtworks(user, counter)
     )
     file = URI.open(image_urls[counter])
     artwork.photo.attach(io: file, filename: "#{artwork.name}.png", content_type: "image/png")
+    puts "------"
     artwork.save
+    p artwork
     puts "Artwork #{artwork.id} saved"
+    puts "------"
     counter += 1
   end
   return counter
