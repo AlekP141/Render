@@ -6,6 +6,7 @@ ruby "3.1.2"
 gem "devise"
 gem "dotenv-rails"
 gem "cloudinary"
+gem "geocoder"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.5"
@@ -30,6 +31,8 @@ gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
+
+gem "geocoder"
 
 gem "faker"
 

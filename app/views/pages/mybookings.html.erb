@@ -1,11 +1,10 @@
 <%= render "shared/header" %>
 
 <div class="container">
-
-
   <h2 class="mt-4">Welcome <%= current_user.username%>! Here are your bookings:</h2>
 
   <% @bookings.each do |booking| %>
+  
     <div data-controller="review-form">
       <div class="container">
         <div class="card mt-4 shadow-sm" id="mybookings-card">

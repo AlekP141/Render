@@ -30,6 +30,31 @@ def createArtworks(user)
     "https://images.unsplash.com/photo-1578321271369-d008a1ee4fd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1031&q=80",
     "https://images.unsplash.com/photo-1578301977947-cb446e84e8cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1023&q=80"
   ]
+
+  address = [
+    "138 Kingsland Rd London E2 8DY",
+    "10 Downing Street Westminster London SW1A 2AA",
+    "221B Baker Street Marylebone London NW1 6XE",
+    "160 Great Portland Street Fitzrovia London W1W 5QA",
+    "1 Abbey Road St John's Wood London NW8 9AY",
+    "32 London Bridge Street Southwark London SE1 9SG",
+    "221 Strand Covent Garden London WC2R 1AP",
+    "123 Oxford Street Soho London W1D 2HU",
+    "28 Portobello Road Notting Hill London W11 3DG",
+    "66 The Cut Waterloo London SE1 8LZ",
+    "1 St Martin's Le Grand City of London London EC1A 4NP",
+    "30 Leicester Square West End London WC2H 7LA",
+    "160 Oxford Street Westminster London W1D 1NN",
+    "45 St. James's Place St. James's London SW1A 1NH",
+    "9 Savile Row Mayfair London W1S 3PF",
+    "20 Fenchurch Street City of London London EC3M 3BY",
+    "10 Hanover Square Mayfair London W1S 1JH",
+    "1 Canada Square Canary Wharf London E14 5AB",
+    "40 Liverpool Street City of London London EC2M 7QN",
+    "77 Baker Street Marylebone London W1U 6RF",
+    "18 Victoria Embankment Westminster London EC4Y 0DH"
+  ]
+
   4.times do
     artwork = Artwork.new(
       name: Faker::GreekPhilosophers.name,
@@ -37,7 +62,7 @@ def createArtworks(user)
       width: rand(50..150),
       height: rand(50..150),
       average_rating: rand(3.0..5.0).round(2),
-      address: Faker::Address.street_address,
+      address: address.sample,
       description: Faker::Quote.matz,
       user: user
     )

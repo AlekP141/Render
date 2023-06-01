@@ -1,4 +1,6 @@
 class Artwork < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   belongs_to :user
   has_many :bookings
   has_many :reviews, through: :bookings
@@ -17,7 +19,7 @@ class Artwork < ApplicationRecord
   validates :height, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_nil: true
   validates :width, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_nil: true
   # that the height and width measurements are a positive number and no artwork without it cant be validated
-
   include PgSearch::Model
   multisearchable against: [:price, :address, :average_rating, :height, :width, :name]
+
 end
