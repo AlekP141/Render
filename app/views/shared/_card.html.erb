@@ -1,14 +1,14 @@
     <div class="row mt-4 d-flex justify-content-start">
       <% @artworks.each do |artwork| %>
       <div class="col-4 p-2">
-        <%= link_to artwork_path(artwork), class: "card m-2 shadow-sm card-links wrap" do %>
+        <%= link_to artwork_path(artwork), class: "card m-2 shadow-sm card-links index-wrap" do %>
 
           <% if artwork.photo.attached?  %>
             <%= cl_image_tag artwork.photo.key, class: "card-img-top-rounded", id: "card-image" %>
           <% else %>
             <img class="card-img-top rounded" id="card-image" src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
           <% end %>
-          <div class="text">
+          <div class="index-text">
             <button class="btn btn-primary mx-1 my-3" type="submit">Reserve Now!</button>
           </div>
           <div class="card-title">

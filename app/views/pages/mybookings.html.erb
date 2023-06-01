@@ -48,7 +48,7 @@
               <h6 class="card-text">Total cost: <strong>£<%= ((booking.end_date - booking.start_date).to_i * booking.artwork.price).round(2) %></strong></h6>
             </div>
             <div class="m-2">
-              <%= link_to "Cancel booking",booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger mb-2" %>
+              <%= link_to "Cancel booking",booking_path(booking), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-secondary show-btn-delete btn-sm mb-2" %>
             </div>
           </div>
         </div>
