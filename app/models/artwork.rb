@@ -20,6 +20,9 @@ class Artwork < ApplicationRecord
   validates :width, numericality: { greater_than_or_equal_to: 0, only_integer: true }, allow_nil: true
   # that the height and width measurements are a positive number and no artwork without it cant be validated
   include PgSearch::Model
-  multisearchable against: [:price, :address, :average_rating, :height, :width, :name]
-
+  pg_search_scope :search_by_address,
+    against: [ :address ],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end

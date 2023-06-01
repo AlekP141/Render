@@ -1,7 +1,18 @@
 <%= render "shared/header" %>
-</nav>
+
 <div class="container bg-light">
   <div class="bg-light mt-4">
-    <%= render "shared/card" %>
+     <div class="row mt-4 d-flex justify-content-start">
+      <% if @artworks.empty? %>
+        <p>Couldn't find any artworks matching your criteria</p>
+        <% @artworks_false_search.each do |artwork| %>
+          <%= render "card", artwork: artwork %>
+        <% end %>
+      <% else %>
+        <% @artworks.each do |artwork| %>
+          <%= render "card", artwork: artwork %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

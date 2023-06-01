@@ -9,6 +9,7 @@ require "faker"
 require "open-uri"
 
 puts "Cleaning database ..."
+Review.destroy_all
 Booking.destroy_all
 Artwork.destroy_all
 User.destroy_all

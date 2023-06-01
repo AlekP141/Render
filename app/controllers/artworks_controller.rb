@@ -5,7 +5,13 @@ class ArtworksController < ApplicationController
   end
 
   def index
-    @artworks = Artwork.all
+    if params[:query].present?
+      @artworks = Artwork.search_by_address(params[:query])
+    else
+      @artworks = Artwork.all
+    end
+
+    @artworks_false_search = Artwork.all
   end
 
   def show
