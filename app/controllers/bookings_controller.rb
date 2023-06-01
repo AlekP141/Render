@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :find_artwork
+  before_action :find_artwork, only: [:new, :create]
 
   def new
     @booking = Booking.new
@@ -17,6 +17,9 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to mybookings_path
   end
 
   private
