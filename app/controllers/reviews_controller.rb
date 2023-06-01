@@ -1,9 +1,18 @@
 class ReviewsController < ApplicationController
+  def new
+    @review = Review.new
+  end
+
   def create
     @review = Review.new(review_params)
-    @artwork = Artwork.find(params[:artwork_id])
-    @review.artwork = @artwork
-    redirect_to artwork_path(@artwork) if @review.save
+    @booking = Booking.find(params[:booking_id])
+    @review.user = current_user
+    @review.booking = @booking
+    if @review.save
+      redirect_to myartworks_path
+    else
+      render "pages/mybookings", status: :unprocessable_entity
+    end
   end
 
   def destroy
