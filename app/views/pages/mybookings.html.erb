@@ -43,7 +43,7 @@
         </div>
         <hr class="m-1">
         <div class="card-body px-2 py-2">
-          <div class="d-flex justify-content-between">
+          < class="d-flex justify-content-between">
             <div class="m-2">
               <h6 class="card-text">Total cost: <strong>£<%= ((booking.end_date - booking.start_date).to_i * booking.artwork.price).round(2) %></strong></h6>
             </div>
@@ -61,3 +61,12 @@
   </div>
 <% end %>
 </div>
+
+<h5>Add your review</h5>
+      <div>
+        <%= simple_form_for [@artwork, @review] do |f| %>
+          <%= f.input :comment, placeholder: "Add your review here..." %>
+          <%= f.input :rating, as: :select, collection: (1..5), required: true, label: false, input_html: { data: { controller: "star-rating" } } %>
+          <%= f.submit class: "btn btn-flat mt-2" %>
+        <% end %>
+      </div>
