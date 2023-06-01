@@ -1,0 +1,12 @@
+.show-btn-delete {
+  opacity: 50%;
+    &:hover {
+      opacity: 80%;
+      background-color: $red;
+      border-color: $red;
+    }
+}
+
+.card-divider {
+  border-bottom: #6E45DF80
+}

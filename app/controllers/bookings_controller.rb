@@ -9,7 +9,6 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.user = current_user
     @booking.artwork = @artwork
-    raise
     @booking.save
     redirect_to artworks_path
   end

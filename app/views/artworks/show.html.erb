@@ -28,14 +28,14 @@
         <div class="card-body py-0 px-1">
           <div class="d-flex justify-content-start ">
             <div class="mx-2 mt-2">
-              <i class="fa-solid fa-arrows-up-down fa-lg"> <span class="icon-text"><%= @artwork.height %>cm tall</span></i>
+              <i class="fa-solid fa-arrows-up-down fa-lg"> <span class="icon-text"><%= @artwork.height %>cm</span></i>
             </div>
           </div>
         </div>
         <div class="card-body py-0 px-1">
           <div class="d-flex justify-content-start">
             <div class="mx-2 mt-2">
-              <i class="fa-solid fa-arrows-left-right fa-lg"> <span class="icon-text"><%= @artwork.width %>cm wide</span></i>
+              <i class="fa-solid fa-arrows-left-right fa-lg"> <span class="icon-text"><%= @artwork.width %>cm</span></i>
             </div>
           </div>
         </div>
@@ -64,7 +64,7 @@
   </div>
   <div
   data-booking-form-target="bookingFormDiv"
-  class="container d-none mb-3">
+  class="d-none container mb-3">
     <div class="card mt-2 shadow-sm p-3">
       <div class="row d-flex justify-content-between">
         <div class="col-5">
@@ -78,28 +78,26 @@
               <input type="date" id="start_date" name="start_date" class="form-select mx-1 date required">
               <label for="end_date" class="form-label date required">End Date</label>
               <input type="date" id="end_date" name="end_date" class="form-select mx-1 date required">
-              <button type="submit" class="btn btn-primary m-3">Submit Dates</button>
+              <button type="submit" class="btn btn-primary mt-3">Submit Dates</button>
             </form>
           </div>
 
         </div>
-        <div class="col-7 d-flex justify-content-between align-items-end border-start border-primary">
-        <div>
-          <p>Number of nights: <span data-booking-form-target="numberOfNights"></span></p>
-          <p>Service Charge: £<span data-booking-form-target="serviceCharge"></span></p>
-          <br>
-        </div>
-          <p class="mx-3 mb-0">Total Price: £<span data-booking-form-target="totalPrice"></span></p>
-          <br>
-        <form action="/artworks/<%=@artwork.id%>/bookings" method="POST">
-          <input type="hidden" name="authenticity_token" value="4gL9J_9CKJ59Dn-bY3zgp_Q6TdacrOd1ubQwcPCv6-tM6C8tcWlfcXRYCI4nRjdBeDD9ho8VJr4hGuB-Ww6_yg" autocomplete="off">
-          <label for="start_date" class="d-none form-label date required">Start Date</label>
-          <input data-booking-form-target="startDate" type="date" id="start_date" name="start_date" class="d-none form-select mx-1 date required">
-          <label for="end_date" class="d-none form-label date required">End Date</label>
-          <input data-booking-form-target="endDate" type="date" id="end_date" name="end_date" class="d-none form-select mx-1 date required">
-          <input type="text" id="artwork" name="artwork_id" value="<%= @artwork.id %>" class="d-none">
-          <button type="submit" class="btn btn-primary">Confirm Booking</button>
-        </form>
+        <div class="col-7 d-flex flex-column border-start mt-5">
+          <div class="border-bottom pb-3">
+            <p class="">Number of nights: <span data-booking-form-target="numberOfNights"></span></p>
+            <p class="">Service Charge: £<span data-booking-form-target="serviceCharge"></span></p>
+          </div>
+          <div class="align-self-end text-end pt-3 ">
+            <p class="">Total Price: £<span data-booking-form-target="totalPrice"></span></p>
+            <%= simple_form_for [@artwork, @booking] do |f| %>
+              <div class="d-none">
+              <%= f.input :start_date, as: :date, html5: true %>
+              <%= f.input :end_date, as: :date, html5: true %>
+              </div>
+              <%= f.submit "Confirm", class: "btn btn-primary" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
