@@ -115,56 +115,52 @@
     </div>
   </div>
 </div>
-
-<div class="container ">
-  <div class="container mb-3">
-    <div class="card mt-2 shadow-sm p-3">
-      <div style="width: 100%; height: 300px; "
-        data-controller="map"
-        data-map-markers-value="<%= @markers.to_json %>"
-        data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+<div class="container mb-3">
+  <div class="card mt-2 shadow-sm p-3">
+    <div style="width: 100%; height: 300px; "
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
-  <div class="m-1">
-    <div class="container p-0">
-      <% if @artwork.reviews.empty? %>
-        <div class="col-4 col-sm-6">
+</div>
+<div class="container">
+  <div class="container p-0">
+    <% if @artwork.reviews.empty? %>
+      <div class="col-4 col-sm-6">
 
-          <h3>Customer Reviews</h3>
+        <h3>Customer Reviews</h3>
 
-          <small><em class="text-muted">There are no reviews yet</em></small>
-          <% elsif @artwork.reviews.count == 1%>
-            <small><em class="text-muted">There is <%= @artwork.reviews.count %> reviews</em></small>
-          <% else  %>
-            <small><em class="text-muted">There are <%= @artwork.reviews.count %> reviews</em></small>
-          <% end %>
-        </div>
-    </div>
-      <div class="row mt-3 d-flex justify-content-start">
-        <% @artwork.reviews.each do |review| %>
-          <div class="col-4 p-2">
-            <div class="card">
-              <div class="card-body">
-                <div class="d-flex justify-content-between mt-2 px-3">
-                  <div>
-                    <h5 class="card-title"><%= review.user.first_name %> <%= review.user.last_name %></h5>
-                  </div>
-                  <div>
-                    <% review.rating.to_i.times do %>
-                      <i class="fa-solid fa-star fa-lg" style="color:#40916c"> <span class="icon-text"></span></i>
-                    <% end %>
-                  </div>
-                </div>
-                <hr>
-                <div class="m-3">
-                  <p class="card-text"><%= review.comment %></p>
-                </div>
+        <small><em class="text-muted">There are no reviews yet</em></small>
+        <% elsif @artwork.reviews.count == 1%>
+          <small><em class="text-muted">There is <%= @artwork.reviews.count %> reviews</em></small>
+        <% else  %>
+          <small><em class="text-muted">There are <%= @artwork.reviews.count %> reviews</em></small>
+        <% end %>
+      </div>
+  </div>
+  <div class="row mt-3 d-flex justify-content-start">
+    <% @artwork.reviews.each do |review| %>
+      <div class="col-4 p-2">
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex justify-content-between mt-2 px-3">
+              <div>
+                <h5 class="card-title"><%= review.user.first_name %> <%= review.user.last_name %></h5>
+              </div>
+              <div>
+                <% review.rating.to_i.times do %>
+                  <i class="fa-solid fa-star fa-lg" style="color:#40916c"> <span class="icon-text"></span></i>
+                <% end %>
               </div>
             </div>
+            <hr>
+            <div class="m-3">
+              <p class="card-text"><%= review.comment %></p>
+            </div>
           </div>
-        <% end %>
-    </div>
-    </div>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -34,6 +34,19 @@ def createArtworks(user, counter)
     "https://images.unsplash.com/photo-1577398628395-4ebd1f36731b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"
   ]
 
+  painting_names = [
+    "Still Life in Red",
+    "Ascendance to the Heavens",
+    "Forgotten Amulet",
+    "Prayers of Healing",
+    "Mary in the Field",
+    "Heaven's Gate",
+    "Robes of Riches",
+    "The Water Bearer",
+    "The Maternal Bond",
+    "Eleni"
+  ]
+
   address = [
     "138 Kingsland Rd London E2 8DY",
     "1 Canada Square Canary Wharf London E14 5AB",
