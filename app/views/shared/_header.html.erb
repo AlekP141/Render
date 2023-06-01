@@ -4,24 +4,16 @@
       <%= image_tag "logo.png", alt:"Logo", width:"50", height:"50", class:"d-inline-block align-text-top" %>
     <% end %>
     <div>
-      <%= link_to new_artwork_path do %>
-        <button class="btn btn-outline-primary mx-1 my-3" type="submit">List my artwork!</button>
-      <% end %>
+      <%= link_to "List my artwork!", new_artwork_path, class:"btn btn-outline-primary mx-1 my-3" %>
       <%# Changes if a login button is showed or the user avatar %>
       <% if current_user %>
-          <% if current_user.bookings %>
-            <%= link_to mybookings_path do %>
-              <button class="btn btn-outline-info m-3" type="submit">My bookings</button>
-            <% end %>
-          <% end %>
-          <%= link_to myartworks_path do %>
-            <button class="btn btn-outline-info mx-2 my-3" type="submit">My Artwork</button>
-          <% end %>
-          <%= image_tag "default_avatar.png", alt:"User Photo", class:"avatar d-inline-block align-self-center" %>
-      <% else %>
-        <%= link_to new_user_session_path do %>
-          <button class="btn btn-outline-info m-3" type="submit">Login</button>
+        <% if current_user.bookings %>
+          <%= link_to "My bookings", mybookings_path, class:"btn btn-outline-info mx-1 my-3"  %>
         <% end %>
+        <%= link_to "My Artwork", myartworks_path, class:"btn btn-outline-info mx-2 my-3" %>
+        <%= image_tag "default_avatar.png", alt:"User Photo", class:"avatar d-inline-block align-self-center" %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class:"btn btn-outline-info m-3" %>
       <% end %>
     </div>
   </div>
