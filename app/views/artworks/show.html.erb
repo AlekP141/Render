@@ -126,27 +126,25 @@
 </div>
 <div class="container">
   <div class="container p-0">
+    <div class="col-4 col-sm-6">
+    <h3>Customer Reviews</h3>
     <% if @artwork.reviews.empty? %>
-      <div class="col-4 col-sm-6">
-
-        <h3>Customer Reviews</h3>
-
-        <small><em class="text-muted">There are no reviews yet</em></small>
-        <% elsif @artwork.reviews.count == 1%>
-          <small><em class="text-muted">There is <%= @artwork.reviews.count %> reviews</em></small>
-        <% else  %>
-          <small><em class="text-muted">There are <%= @artwork.reviews.count %> reviews</em></small>
-        <% end %>
-      </div>
+      <small><em class="text-muted">There are no reviews yet</em></small>
+    <% elsif @artwork.reviews.count == 1%>
+      <small><em class="text-muted">There is <%= @artwork.reviews.count %> review</em></small>
+    <% else  %>
+      <small><em class="text-muted">There are <%= @artwork.reviews.count %> reviews</em></small>
+    <% end %>
+    </div>
   </div>
-  <div class="row mt-3 d-flex justify-content-start">
+  <div class="row mt-1 mb-3 d-flex justify-content-start">
     <% @artwork.reviews.each do |review| %>
       <div class="col-4 p-2">
-        <div class="card">
+        <div class="card review-card">
           <div class="card-body">
-            <div class="d-flex justify-content-between mt-2 px-3">
+            <div class="d-flex justify-content-between align-items-center">
               <div>
-                <h5 class="card-title"><%= review.user.first_name %> <%= review.user.last_name %></h5>
+                <h4 class="card-title m-0"><strong class="text-purple"><%= review.user.first_name %> <%= review.user.last_name %></strong></h4>
               </div>
               <div>
                 <% review.rating.to_i.times do %>
@@ -155,7 +153,7 @@
               </div>
             </div>
             <hr>
-            <div class="m-3">
+            <div class="mb-2">
               <p class="card-text"><%= review.comment %></p>
             </div>
           </div>
