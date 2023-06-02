@@ -2,14 +2,10 @@
 <div class="container d-flex flex-column align-items-center">
   <%= image_tag "logo_with_text.png", alt:"Render Logo", width:"30%", class:"d-inline-block align-text-top" %>
   <%# <div class="search-box"> %>
-    <%= form_with url: artworks_path, method: :get, class: "d-flex search-icon" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Location..."
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+  <form class="search-box" action="/artworks" accept-charset="UTF-8" method="get">
+    <input type="text" name="query" id="query" placeholder="Search the artworks">
+    <button type="submit" name="commit" value="Search" class="search-icon" data-disable-with="Search" style="border:0"><i class="fas fa-search"></i></button>
+  </form>
     <%# <input type="text" placeholder="Location..."> %>
     <%# <div class="search-icon"> %>
       <%# <i class="fas fa-search"></i> %>
