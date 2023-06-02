@@ -1,17 +1,20 @@
 <%= render "shared/header" %>
+<div class="" style="width: 100vw; height: calc(100vh - 70px); position: relative">
+    <div style="width: inherit; height: inherit; opacity: 0.3; position: absolute; pointer-events: none"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+  <div style="position: absolute; z-index: 3; left: 50%; top:50%; transform: translate(-50%, -50%)" class="d-flex justify-content-center align-items-center flex-column">
+    <%= image_tag "logo_with_text.png", alt:"Render Logo", width:"100%", class:"d-inline-block align-text-top" %>
+    <form class="search-box" action="/artworks" accept-charset="UTF-8" method="get">
+      <input type="text" name="query" id="query" placeholder="Search the artworks">
+      <button type="submit" name="commit" value="Search" class="search-icon" data-disable-with="Search" style="border:0"><i class="fas fa-search"></i></button>
+    </form>
+    <%= link_to "See all Artworks", artworks_path, class:"homepage-see-all mt-4"%>
+  </div>
+</div>
 <div class="container d-flex flex-column align-items-center">
-  <%= image_tag "logo_with_text.png", alt:"Render Logo", width:"30%", class:"d-inline-block align-text-top" %>
-  <%# <div class="search-box"> %>
-  <form class="search-box" action="/artworks" accept-charset="UTF-8" method="get">
-    <input type="text" name="query" id="query" placeholder="Search the artworks">
-    <button type="submit" name="commit" value="Search" class="search-icon" data-disable-with="Search" style="border:0"><i class="fas fa-search"></i></button>
-  </form>
-    <%# <input type="text" placeholder="Location..."> %>
-    <%# <div class="search-icon"> %>
-      <%# <i class="fas fa-search"></i> %>
-    <%# </div> %>
-  <%# </div> %>
-  <%= link_to "See all Artworks", artworks_path, class:"homepage-see-all mt-4"%>
   <div class="container mt-5">
   <div class="homepage-featured h4">Featured Artwork</div>
   <hr>
@@ -23,10 +26,4 @@
     </div>
   </div>
 <hr>
-</div>
-
-<div style="width: 100vw; height: calc(100vh - 70px);"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
