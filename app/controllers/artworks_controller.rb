@@ -10,7 +10,8 @@ class ArtworksController < ApplicationController
     else
       @artworks = Artwork.all
     end
-
+    @artworks = @artworks.filter_by_price(params[:price]) if params[:price].present?
+    @artworks = @artworks.filter_by_artist(params[:first_name]) if params[:first_name].present?
     @artworks_false_search = Artwork.all
   end
 
