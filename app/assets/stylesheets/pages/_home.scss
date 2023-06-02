@@ -5,6 +5,13 @@
 
 // LOGO
 
+.homepage-logo-text {
+  font-family: 'Dancing Script', cursive;
+  font-weight: 600;
+  font-size: 70px;
+  color: $purple;
+}
+
 .homepage-logo {
   width: 30%;
   background-image: url("../../images/logo_with_text.png");
