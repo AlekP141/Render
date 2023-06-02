@@ -49,12 +49,12 @@ def createArtworks(user, counter)
 
   address = [
     "138 Kingsland Rd London E2 8DY",
-    "1 Canada Square Canary Wharf London E14 5AB",
+    "100 London Road London SE23 3PQ",
     "40 Liverpool Street City of London London EC2M 7QN",
     "1 Abbey Road St John's Wood London NW8 9AY",
     "32 London Bridge Street Southwark London SE1 9SG",
     "221 Strand Covent Garden London WC2R 1AP",
-    "123 Oxford Street Soho London W1D 2HU",
+    "190 Strand Covent Garden London WC2R 1AP",
     "42 Harrow View Road Ealing London W5 1LZ",
     "22 Hampstead High Street Hampstead London NW3 1QD",
     "98 Tottenham Lane Hornsey London N8 7EE",
