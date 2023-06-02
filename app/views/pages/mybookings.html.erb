@@ -59,7 +59,7 @@
         </div>
         </div>
       </div>
-        <div class="container mt-4 d-none" data-review-form-target="show">
+        <div class="container my-4 d-none" data-review-form-target="show">
         <%= simple_form_for [@booking, @review], url: booking_reviews_path(booking) do |f| %>
           <%= f.input :comment, placeholder: "Add your review here..." %>
           <%= f.input :rating, as: :select, collection: (1..5), required: true, label: false, input_html: { data: { controller: "star-rating" } } %>
