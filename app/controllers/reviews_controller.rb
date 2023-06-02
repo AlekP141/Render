@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     # ratings = @review.rating
     # artwork_avg_rating = @booking.artwork.average_rating
-    # number_of_ratings = artwork.reviews.count
+    # number_of_ratings = @artwork.reviews.count
     # all_ratings = artwork_avg_rating * number_of_ratings
     @review.user = current_user
     @review.booking = @booking

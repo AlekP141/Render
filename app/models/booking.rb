@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :artwork
-  has_one :review
+  has_one :review, dependent: :delete
 
   validates :user_id, presence: true
   validates :artwork_id, presence: true
@@ -10,6 +10,8 @@ class Booking < ApplicationRecord
   # artwork is assigned to a user, start/end date is assigned
 
   validate :validate_dates_order
+
+
 
   private
 

@@ -3,13 +3,14 @@
 <div class="container">
 
 
-  <h2 class="mt-4">Welcome <%= current_user.username%>! Here are your listings:</h2>
+  <h2 class="mt-4">Welcome <%= current_user.username%>! Here are your listed artworks:</h2>
 
   <% @artworks.each do |artwork| %>
     <div class="container">
     <div class="card mt-4 shadow-sm" id="myartworks-card">
-      <div class="row d-flex justify-content-between">
-      <div class="col-7 d-flex flex-column justify-content-between">
+      <div class="d-flex justify-content-between" style="height: inherit; transform: translateY(-1px)">
+      <div class="card-content flex-grow-1" style="height: inherit">
+      <div class="d-flex flex-column justify-content-between" style="height: inherit">
         <div class="card-title m-0 p-0">
           <div class="d-flex justify-content-between mt-3 px-3">
             <div class="mt-3">
@@ -20,7 +21,7 @@
             </div>
           </div>
         </div>
-        <div class="card-body py-0 px-0 mx-2 border-bottom card-divider">
+        <div class="card-body py-0 px-0 mx-2 border-bottom card-divider d-flex flex-column justify-content-center">
           <div class="d-flex justify-content-between">
             <div class="m-2 mt-2">
               <h5 class="card-text">Address: <strong><%=artwork.address%></strong></h5>
@@ -47,8 +48,9 @@
             </div>
         </div>
       </div>
-      <div class="col-5">
-        <img class="card-img-top rounded" id="myartworks-image" src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YXJ0fGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60" alt="Card image cap">
+      </div>
+      <div class="card-image-container d-flex justify-content-end" style="height: inherit">
+        <%= cl_image_tag artwork.photo.key, alt: artwork.name, class:"card-image" %>
       </div>
 
     </div>
