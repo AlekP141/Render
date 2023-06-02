@@ -1,25 +1,26 @@
 <%= render "shared/header" %>
 <div class="container">
   <div class="container">
-    <div class="row mt-4 ml-2 d-flex justify-content-center">
-      <div class="card p-0 col-5 ">
-        <div class="container p-3 ml-2">
+
+    <div class="row mt-4 ml-2 d-flex justify-content-center bg-white" style="border-radius: 50vh">
+      <div class=" p-0 col-5 my-3" style="border-right: 1px solid black;">
+        <div class="container px-3 ml-2">
           <%= form_with url: artworks_path, method: :get, html: { class: "d-flex search-icon" } do |f| %>
             <%= f.text_field :query,
               value: params[:query],
-              class: "form-control",
+              class: "form-control bg-white border border-white",
               placeholder: "Location..."
             %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-primary"%>
           <% end %>
         </div>
       </div>
-        <div class="card col-7 p-0">
+        <div class="col-7 p-0">
           <div class="container p-3">
             <%= form_with url: artworks_path, method: :get, html: { class: "d-flex search-icon" } do |f| %>
-              <%= f.select(:price, options_for_select(Artwork.all.map(&:price).uniq, selected: params[:price]), { :include_blank => 'All prices' }, { class: "form-select select-category" }) %>
-              <%= f.select(:artist, options_for_select(Artwork.all.map(&:user).map(&:first_name).uniq, selected: params[:artist]), { :include_blank => 'All artists' }, { class: "form-select select-category" }) %>
-            <%= submit_tag "Filter", class: "btn btn-primary" %>
+              <%= f.select(:price, options_for_select(Artwork.all.map(&:price).uniq, selected: params[:price]), { :include_blank => 'All prices' }, { class: "form-select select-category dropdown-item" }) %>
+              <%= f.select(:artist, options_for_select(Artwork.all.map(&:user).map(&:first_name).uniq, selected: params[:artist]), { :include_blank => 'All artists' }, { class: "form-select select-category dropdown-item" }) %>
+            <%= submit_tag "Filter", class: "btn btn-primary"%>
             <% end %>
           </div>
         </div>
