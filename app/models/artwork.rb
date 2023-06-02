@@ -21,11 +21,11 @@ class Artwork < ApplicationRecord
   # that the height and width measurements are a positive number and no artwork without it cant be validated
   include PgSearch::Model
   pg_search_scope :search_by_address,
-    against: [ :address],
+    against: [:address],
     using: {
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
-  scope :filter_by_price, ->(price) { where price: price}
-  scope :filter_by_artist, ->(artist) { where artist: artist}
+  scope :filter_by_price, ->(price) { where price: price }
+  scope :filter_by_artist, ->(artist) { where artist: artist }
 end
