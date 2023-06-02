@@ -2,7 +2,7 @@
 <div class="" style="width: 100vw; height: calc(100vh - 70px); position: relative">
     <div style="width: inherit; height: inherit; opacity: 0.3; position: absolute; pointer-events: none"
     data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-markers-value="<%= @markers.each.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div style="position: absolute; z-index: 3; left: 50%; top:50%; transform: translate(-50%, -50%)" class="d-flex justify-content-center align-items-center flex-column">
@@ -20,7 +20,7 @@
   <hr>
   <div class="bg-light mt-4">
     <div class="row mt-4 d-flex justify-content-start">
-      <% @artworks.each do |artwork| %>
+      <% @artworks.sample(3).each do |artwork| %>
         <%= render "card", artwork: artwork %>
       <% end %>
     </div>
