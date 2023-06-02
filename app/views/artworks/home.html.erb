@@ -6,7 +6,7 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div style="position: absolute; z-index: 3; left: 50%; top:50%; transform: translate(-50%, -50%)" class="d-flex justify-content-center align-items-center flex-column">
-    <%= image_tag "logo_with_text.png", alt:"Render Logo", width:"100%", class:"d-inline-block align-text-top" %>
+    <%= image_tag "logo.png", alt:"Render Logo", width:"50%", class:"d-inline-block align-text-top" %>
     <form class="search-box" action="/artworks" accept-charset="UTF-8" method="get">
       <input type="text" name="query" id="query" placeholder="Search the artworks">
       <button type="submit" name="commit" value="Search" class="search-icon" data-disable-with="Search" style="border:0"><i class="fas fa-search"></i></button>
