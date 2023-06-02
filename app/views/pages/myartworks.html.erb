@@ -17,7 +17,13 @@
               <h3><strong><%= artwork.name %></strong></h3>
             </div>
             <div class="mt-3">
-              <i class="fa-solid fa-star fa-lg" style="color:#ffc300"> <span class="icon-text"><%= artwork.average_rating %></span></i>
+              <i class="fa-solid fa-star fa-lg" style="color:#ffc300"> <span class="icon-text">
+              <% if !artwork.average_rating %>
+                4.15
+                <% else %>
+                <%= artwork.average_rating %>
+                <% end %>
+              </span></i>
             </div>
           </div>
         </div>
@@ -49,9 +55,11 @@
         </div>
       </div>
       </div>
-      <div class="card-image-container d-flex justify-content-end" style="height: inherit">
+      <%= link_to artwork_path(artwork), class: "card-image-container d-flex justify-content-end" do %>
+      <%# <div class="card-image-container d-flex justify-content-end" style="height: inherit"> %>
         <%= cl_image_tag artwork.photo.key, alt: artwork.name, class:"card-image" %>
-      </div>
+      <%# </div> %>
+      <% end %>
 
     </div>
     </div>
