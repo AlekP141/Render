@@ -1,4 +1,16 @@
 <%= render "shared/header" %>
+<div class="container mt-4">
+  <%= form_with url: artworks_path, method: :get, html: { class: "d-flex search-icon" } do |f| %>
+    <%= f.text_field :query,
+      value: params[:query],
+      class: "form-control",
+      placeholder: "Search..."
+    %>
+    <%= f.select(:price, options_for_select(Artwork.all.map(&:price).uniq, selected: params[:price]), { :include_blank => 'price' }, { class: "form-select select-category" }) %>
+    <%= f.select(:artist, options_for_select(Artwork.all.map(&:user).map(&:first_name).uniq, selected: params[:artist]), { :include_blank => 'artist' }, { class: "form-select select-category" }) %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="container bg-light">
   <div class="bg-light mt-4">

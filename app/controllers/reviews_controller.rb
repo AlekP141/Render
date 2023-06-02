@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.booking = @booking
     if @review.save
-      redirect_to myartworks_path
+      redirect_to mybookings_path
     else
       render "pages/mybookings", status: :unprocessable_entity
     end
